@@ -152,12 +152,6 @@ Full rules: `SKILL.md` + `references/anti-slop.md`.
 
 ---
 
-## Privacy
-
-Public package is **sanitized**: no personal names, local machine paths, portfolio deploy URLs, emails, or credentials.
-
----
-
 ## Release
 
 See [Releases](https://github.com/fermerpavel1-arch/ui-constructor-skill/releases) for version notes.

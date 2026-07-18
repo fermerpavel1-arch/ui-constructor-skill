@@ -8,7 +8,7 @@ Curated **Magic UI** + **React Bits** catalog, anti-slop rules, MCP/CLI install 
 |--|--|
 | **Repo** | https://github.com/fermerpavel1-arch/ui-constructor-skill |
 | **License** | MIT |
-| **Version** | 1.0.0 |
+| **Version** | 1.1.0 |
 | **Node** | ≥ 18 |
 
 ---
@@ -39,50 +39,86 @@ Curated **Magic UI** + **React Bits** catalog, anti-slop rules, MCP/CLI install 
 npm install github:fermerpavel1-arch/ui-constructor-skill
 ```
 
-`postinstall` copies files into:
+`postinstall` installs into **detected agent homes** (`--agents auto`):
+any of Grok / Claude / Cursor / Codex / OpenCode / Windsurf / Antigravity
+whose config folder already exists. If none found → Grok path is created.
 
-```text
-~/.grok/skills/ui-constructor/
-```
+| Agent | Global skill path |
+|-------|-------------------|
+| **grok** | `~/.grok/skills/ui-constructor` |
+| **claude** | `~/.claude/skills/ui-constructor` |
+| **cursor** | `~/.cursor/skills/ui-constructor` |
+| **codex** | `~/.codex/skills/ui-constructor` |
+| **opencode** | `~/.config/opencode/skills/ui-constructor` |
+| **windsurf** | `~/.codeium/windsurf/skills/ui-constructor` |
+| **antigravity** | `~/.gemini/antigravity/skills/ui-constructor` |
 
-On Windows: `%USERPROFILE%\.grok\skills\ui-constructor\`
+Windows: same under `%USERPROFILE%\…`.
 
-Re-run install anytime:
+#### Choose agents
 
 ```bash
+# every supported agent (create folders)
+npx ui-constructor-skill --agents all
+
+# only some
+npx ui-constructor-skill --agents grok,claude,cursor
+
+# re-run install
 npx ui-constructor-skill
-# or
 npm run install-skill --prefix node_modules/ui-constructor-skill
 ```
 
-Custom target directory:
+#### Project-local skills
 
 ```bash
-UI_CONSTRUCTOR_SKILL_DIR=/path/to/skills/ui-constructor npx ui-constructor-skill
-# or
-npx ui-constructor-skill --dir /path/to/skills/ui-constructor
+npx ui-constructor-skill --project
+# also writes:
+#   ./.claude/skills/ui-constructor
+#   ./.agents/skills/ui-constructor
+#   ./.cursor/skills/ui-constructor
+#   ./.grok/skills/ui-constructor
 ```
 
-Dry run (no write):
+#### Custom path
 
 ```bash
-npx ui-constructor-skill --dry-run
+npx ui-constructor-skill --dir /path/to/skills/ui-constructor
+# or env
+UI_CONSTRUCTOR_SKILL_DIR=/path/to/skills/ui-constructor npx ui-constructor-skill --agents none --dir /path/to/skills/ui-constructor
+```
+
+#### List / dry-run
+
+```bash
+npx ui-constructor-skill --list
+npx ui-constructor-skill --agents all --dry-run
+```
+
+Env shortcuts:
+
+```bash
+UI_CONSTRUCTOR_AGENTS=claude,cursor
+UI_CONSTRUCTOR_PROJECT=1
 ```
 
 ### Option B — one-shot npx (no save in package.json)
 
 ```bash
 npx github:fermerpavel1-arch/ui-constructor-skill
+npx github:fermerpavel1-arch/ui-constructor-skill --agents all
 ```
 
 ### Option C — manual clone
 
 ```bash
 git clone https://github.com/fermerpavel1-arch/ui-constructor-skill.git
-# copy SKILL.md + references/ into ~/.grok/skills/ui-constructor/
+cd ui-constructor-skill
+node bin/install.js --agents all
+# or copy SKILL.md + references/ into your agent’s skills/ui-constructor/
 ```
 
-After install, **restart Grok** (or reload skills) so `/ui-constructor` is available.
+After install, **restart the agent** (or reload skills) so the skill is picked up.
 
 ---
 
@@ -158,7 +194,7 @@ See [Releases](https://github.com/fermerpavel1-arch/ui-constructor-skill/release
 
 ```bash
 # pin a release tag
-npm install github:fermerpavel1-arch/ui-constructor-skill#v1.0.0
+npm install github:fermerpavel1-arch/ui-constructor-skill#v1.1.0
 ```
 
 ## License

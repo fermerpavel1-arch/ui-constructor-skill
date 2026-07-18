@@ -1,9 +1,12 @@
 {
   "name": "ui-constructor-skill",
-  "version": "1.0.0",
-  "description": "Grok / AI-agent skill: curated Magic UI + React Bits kit, anti-AI-slop rules, MCP install paths, industrial portfolio reference stack",
+  "version": "1.1.0",
+  "description": "AI-agent skill (Grok, Claude, Cursor, Codex, …): Magic UI + React Bits kit, anti-AI-slop rules, multi-agent install, MCP paths",
   "keywords": [
     "grok",
+    "claude",
+    "cursor",
+    "codex",
     "skill",
     "magic-ui",
     "react-bits",

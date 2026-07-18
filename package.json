@@ -1,0 +1,46 @@
+{
+  "name": "ui-constructor-skill",
+  "version": "1.0.0",
+  "description": "Grok / AI-agent skill: curated Magic UI + React Bits kit, anti-AI-slop rules, MCP install paths, industrial portfolio reference stack",
+  "keywords": [
+    "grok",
+    "skill",
+    "magic-ui",
+    "react-bits",
+    "ui",
+    "anti-slop",
+    "framer-motion",
+    "agent-skills"
+  ],
+  "license": "MIT",
+  "author": "fermerpavel1-arch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fermerpavel1-arch/ui-constructor-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fermerpavel1-arch/ui-constructor-skill/issues"
+  },
+  "homepage": "https://github.com/fermerpavel1-arch/ui-constructor-skill#readme",
+  "type": "commonjs",
+  "bin": {
+    "ui-constructor-skill": "bin/install.js"
+  },
+  "scripts": {
+    "postinstall": "node bin/install.js",
+    "install-skill": "node bin/install.js",
+    "test": "node bin/install.js --dry-run"
+  },
+  "files": [
+    "SKILL.md",
+    "references/**/*",
+    "bin/**/*",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "preferGlobal": false
+}
